@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .caixa{
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            position: relative;
+            margin: 50px;
+            box-sizing: border-box;
+        }
+        #moca{
+            position: absolute;
+            top: 600px;
+            left: 1450px;
+            width: 150px;
+            height: 150px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>Movimenta a caixa com javascript</h2>
+    <!-- uma caixa que será direcionada com javascript-->
+
+    <img src="Pac_Man.svg.png" alt="Pacman" class="caixa" id="caixa">
+    <img src="cigas.webp" alt="moca" id ="moca" class="caixa">
+
+
+    <script>
+        const caixa = document.getElementById('caixa')
+        
+        //Posição inicial da Caixa
+        let posX = 0;
+        let posY = 0;
+        let cor = 0;
+        let tamanho = 80;
+
+        document.addEventListener("click",()=>{
+            tamanho += 50;
+            caixa.style.width = tamanho + "px";
+            caixa.style.height = tamanho + "px";
+
+        })
+
+
+
+
+
+
+
+
+
+        document.addEventListener("keydown",(event)=>{
+            const tecla = event.key;
+            const passo = 50;
+
+            if(tecla === "ArrowRight" ){
+                posX += passo;
+                caixa.style.left = posX + "px";
+                cor += passo;
+
+            }
+            if(tecla === "ArrowLeft" ){
+                posX -= passo;
+                caixa.style.left = posX + "px";
+                cor += passo;
+
+            }
+            if(tecla === "ArrowUp" ){
+                posY -= passo;
+                caixa.style.top = posY + "px";
+                cor += passo;
+
+            }
+            if(tecla === "ArrowDown" ){
+                posY += passo;
+                caixa.style.top = posY + "px";
+                cor += passo;
+
+            }
+
+            if(posX < 0 | posY < 0){
+                posX = 0;
+                posY = 0;
+            }
+
+            else{
+            }
+        })
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
